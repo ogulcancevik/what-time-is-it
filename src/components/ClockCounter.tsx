@@ -15,6 +15,7 @@ const ClockCounter = () => {
     if (!myTime) return
     setClientTime(myTime.datetime)
     queryClient.setQueryData('clientTime', myTime.datetime)
+    queryClient.setQueryData('selectedTimezone', myTime.timezone)
   }, [myTime])
 
   const { data: selectedTimezone } = useQuery('selectedTimezone', () =>
