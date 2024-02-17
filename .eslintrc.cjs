@@ -12,5 +12,7 @@ module.exports = {
   plugins: ['react-refresh', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
+    'react-hooks/exhaustive-deps': 0,
+    '@typescript-eslint/ban-ts-comment': 0
   },
 }
