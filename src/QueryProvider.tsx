@@ -5,7 +5,13 @@ interface QueryClientProviderProps {
 }
 const QueryProvider = (props: QueryClientProviderProps) => {
   const { children } = props
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  })
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   )
