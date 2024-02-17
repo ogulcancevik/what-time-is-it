@@ -21,6 +21,12 @@ const TimeZoneSelectbox = () => {
     queryClient.setQueryData('selectedTimezone', timezone)
     setIsOpen(false)
   }
+
+  const handleFocus = () => {
+    setSearch('')
+    const input = document.querySelector('#timezone') as HTMLInputElement
+    input.value = ''
+  }
   const dropdownRef = useRef<HTMLDivElement>(null)
   useOnClickOutside(dropdownRef, () => setIsOpen(false))
 
@@ -38,6 +44,7 @@ const TimeZoneSelectbox = () => {
         placeholder="Search timezone"
         className="w-72 lg:w-56 lg:text-sm p-2 border-gray-300 rounded-md border focus:outline-none bg-neutral-100"
         onClick={() => setIsOpen(true)}
+        onFocus={handleFocus}
         id="timezone"
         onChange={(e) => setSearch(e.target.value)}
       />
